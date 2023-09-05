@@ -3,6 +3,7 @@ import { API_KEY, InitialFetch, url } from "../API_KEY/api_key";
 import { ADD_FAVORITE, CHANGE_VALUE, FETCH_INFORMATION, FETCH_WAS_A_FAILURE, FETCH_WAS_A_SUCCESS, GET_MORE_INFO, IS_FETCHING, TOGGLE_FAVORITES } from "../actions/photoFormAction";
 import axios from "axios";
 
+
 export const initialState = {
     apiKey : API_KEY,
     defaultUrl : `https://apod.nasa.gov/apod/image/2309/CrescentBubble_AlHarbi_1080.jpg`,

@@ -3,6 +3,7 @@ import { ADD_FAVORITE, addFavorite, changeValue, getPhotoOfTheDay, toggleFavorit
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 
+
 const kf2 = keyframes`
 0% {
     transform : translateX(-10rem);
@@ -58,12 +59,13 @@ const FavoritedList = (props) => {
     return (
         <StyledFavorite showFavorites={showFavorites}>
             <div id="first">
-                <span onClick={()=> props.toggleFavorites()} class="material-symbols-outlined">
+                <span  style = {{cursor : "pointer"}} onClick={()=> props.toggleFavorites()} class="material-symbols-outlined">
                     close
                 </span>
                 <h4>Favorite List</h4>
                 {props.favoritePictures && props.favoritePictures.map((n, i) => {
-                    return <section><div onClick={()=>props.getPhotoOfTheDay(n.date)}  key={i}>{n.title}--{n.date}</div><span onClick={()=> props.addFavorite(n)} class="material-symbols-outlined">
+                    return <section><div  style = {{cursor : "pointer"}} onClick={()=>props.getPhotoOfTheDay(n.date)}  key={i}>{n.title}--{n.date}</div>
+                    <span onClick={()=> props.addFavorite(n)} style = {{cursor : "pointer"}} class="material-symbols-outlined">
                     delete
                     </span></section>
                 })}
