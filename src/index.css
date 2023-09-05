@@ -29,11 +29,18 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  
   width: 25rem;
   align-items: center;
   border-radius: 2rem;
   margin-bottom: 4rem;
   background-color: white;
+}
+#archived {
+  color : lightgray
+}
+#archived::before {
+  content : "*";
 }
 #newUrl {
   border : none;

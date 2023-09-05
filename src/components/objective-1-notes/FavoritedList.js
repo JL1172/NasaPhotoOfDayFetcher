@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { ADD_FAVORITE, addFavorite, changeValue, getPhotoOfTheDay, toggleFavorites } from "../actions/photoFormAction"
+import { ADD_FAVORITE, addFavorite, changeValue, getPhotoOfTheDay, isStarFalse, toggleFavorites } from "../actions/photoFormAction"
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 
@@ -56,6 +56,10 @@ div:hover {
 
 const FavoritedList = (props) => {
     const { showFavorites } = props;
+    const submit = (data) => {
+        props.getPhotoOfTheDay(data);
+        props.isStarFalse()
+    }
     return (
         <StyledFavorite showFavorites={showFavorites}>
             <div id="first">
@@ -64,7 +68,7 @@ const FavoritedList = (props) => {
                 </span>
                 <h4>Favorite List</h4>
                 {props.favoritePictures && props.favoritePictures.map((n, i) => {
-                    return <section><div  style = {{cursor : "pointer"}} onClick={()=>props.getPhotoOfTheDay(n.date)}  key={i}>{n.title}--{n.date}</div>
+                    return <section><div  style = {{cursor : "pointer"}} onClick={()=>submit(n.date)}  key={i}>{n.title}--{n.date}</div>
                     <span onClick={()=> props.addFavorite(n)} style = {{cursor : "pointer"}} class="material-symbols-outlined">
                     delete
                     </span></section>
@@ -82,4 +86,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addFavorite, toggleFavorites, getPhotoOfTheDay })(FavoritedList);
+export default connect(mapStateToProps, { addFavorite, toggleFavorites, getPhotoOfTheDay, isStarFalse })(FavoritedList);

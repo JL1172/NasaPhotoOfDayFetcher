@@ -8,11 +8,12 @@ export const FETCH_INFORMATION = "FETCH_INFORMATION";
 export const GET_MORE_INFO = "GET_MORE_INFO";
 export const ADD_FAVORITE = "ADD_FAVORITE"; 
 export const TOGGLE_FAVORITES = "TOGGLE_FAVORITES"; 
+export const IS_STAR_FALSE = "IS_STAR_FALSE";
 
 const API_KEY = ''; //!make sure you delete this before pushing publicly
 const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 
-export const getPhotoOfTheDay = (newDate,msg) => dispatch => {
+export const getPhotoOfTheDay = (newDate) => dispatch => {
     dispatch(setIsFetching(true));
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${newDate}`)
     .then(res=> {
@@ -51,4 +52,7 @@ export const addFavorite = (data) => {
 }
 export const toggleFavorites = () => {
     return{type : TOGGLE_FAVORITES}
+}
+export const isStarFalse = () => {
+    return{type : IS_STAR_FALSE}
 }

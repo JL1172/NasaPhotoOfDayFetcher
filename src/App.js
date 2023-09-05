@@ -28,6 +28,7 @@ width : 100%;
 display : flex;
 justify-content : center;
 align-items : flex-end;
+
 filter : ${props => props.showInformation || props.showFavorites ? "brightness(35%)" : ""};
 `
 const StyledDiv = styled.div`

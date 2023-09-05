@@ -73,8 +73,10 @@ const PhotoForm = (props) => {
                         <span  style = {{cursor : "pointer"}}  id="Popover1" onClick={() => props.getMoreInfo()} className="material-symbols-outlined">
                             more_horiz
                         </span>
+                        {props.starVisible ? 
                         <StyledImg favorited = {props.favorited} onClick={() => favoriteHandler()} width={20}
-                            src={props.favorited ? "https://www.svgrepo.com/show/361616/star-filled.svg" : "https://www.svgrepo.com/show/257711/favourite-star.svg"} />
+                            src={props.favorited  ? "https://www.svgrepo.com/show/361616/star-filled.svg" : "https://www.svgrepo.com/show/257711/favourite-star.svg"} /> : 
+                            <span id = "archived">archived</span>}
                     </div>
                     <button onClick={() => props.getPhotoOfTheDay(props.newUrl,"msg")} id="button" >Search Date</button>
                 </div>
@@ -93,6 +95,7 @@ const mapStateToProps = state => {
         favorited: state.photoReducer.favorited,
         url: state.photoReducer.url,
         information: state.photoReducer.information,
+        starVisible : state.photoReducer.starVisible,
     }
 }
 
