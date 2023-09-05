@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# NASA Astronomy Photo of the Day Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![NASA APOD](https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/potw2115a.jpg)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+> [!IMPORTANT]
+> Make sure to see Usage heading at bottom before forking. It contains vital information for this to work. 
 
-### `npm start`
+This application allows users to explore NASA's collection of Astronomy Photos of the Day (APOD) by specifying a date. It features a minimalistic user interface to have more focus on the pictures. Additionally, for a pleasing U/X, this application comes with toggleable cards that provide additional information about the selected photo. Users can also mark their favorite photos for easy access. The application employs several technologies for data management, including Regex for state management, Thunk for middleware, and persistData for local storage data persistence. It is styled using Reactstrap, styled-components, and CSS. Icons used in the application are sourced from [Google Fonts Icons](https://fonts.google.com/icons). Additionally, users can add and delete their favorite photos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Date-Based Query:** Users can search for NASA's APOD by specifying a date.
 
-### `npm test`
+2. **Toggleable Cards:** Each search result has additional information available as a card, and users can toggle the cards to reveal the information about the photos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Favorites:** Users can mark photos as favorites for quick access in the future.
 
-### `npm run build`
+4. **Data Management:** The application utilizes Regex for state management, Thunk for middleware, and persistData for local storage data persistence.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. **Styling:** The user interface is designed using Reactstrap, styled-components, and CSS for an aesthetically pleasing experience.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. **Icons:** Icons used in the application are sourced from [Google Fonts Icons](https://fonts.google.com/icons).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+To run this application locally, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repository to your local machine:
+   ```
+   git clone https://github.com/your-username/nasa-apod-app.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd nasa-apod-app
+   ```
+3. Install the required dependencies:
+   ```
+   npm install
+   ```
+4. Start the development server:
+   ```
+   npm start
+   ```
+## Usage 
+> [!IMPORTANT]
+> * When you launch the application, you will have to navigate to the photoFormReducer.js file in the reducers folder in the components folder
+> * There, you will see a variable named `const API_KEY = ""`
+> * You will have to generate your own from this [website](https://api.nasa.gov/) and insert it in that variable. 
+> * It is very important you do not push your fork if it is both public and has your API_KEY visible. 
+> * You can also use the DEMO_KEY they give you, but this is limited to 30 calls an hour versus 1000 for free with API_KEY
+   
