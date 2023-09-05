@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { ADD_FAVORITE, addFavorite, changeValue, toggleFavorites } from "../actions/photoFormAction"
+import { ADD_FAVORITE, addFavorite, changeValue, getPhotoOfTheDay, toggleFavorites } from "../actions/photoFormAction"
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 
@@ -40,11 +40,15 @@ h4 {
 }
 section {
     background-color : white;
-    margin : 0 .5rem 0 .5rem;
+    margin : .5rem .5rem .5rem .5rem;
     padding : 0 .4rem 0 .4rem;
     border-radius : 5px;
     display : flex;
     align-items : center;
+div:hover {
+    color : royalblue;
+    text-decoration : underline;
+}
 }
 
 `
@@ -59,7 +63,7 @@ const FavoritedList = (props) => {
                 </span>
                 <h4>Favorite List</h4>
                 {props.favoritePictures && props.favoritePictures.map((n, i) => {
-                    return <section  key={i}>{n.title}--{n.date}<span onClick={()=> props.addFavorite(n)} class="material-symbols-outlined">
+                    return <section><div onClick={()=>props.getPhotoOfTheDay(n.date)}  key={i}>{n.title}--{n.date}</div><span onClick={()=> props.addFavorite(n)} class="material-symbols-outlined">
                     delete
                     </span></section>
                 })}
@@ -76,4 +80,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addFavorite, toggleFavorites, changeValue })(FavoritedList);
+export default connect(mapStateToProps, { addFavorite, toggleFavorites, getPhotoOfTheDay })(FavoritedList);
