@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App(props) {
   return (
     <div id = "main" style = {{backgroundImage : `url(${props.url})`}} >
+      <header id = "absolute"></header>
         <PhotoForm />
     </div>
   );
