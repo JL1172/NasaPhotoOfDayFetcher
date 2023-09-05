@@ -12,20 +12,19 @@ code {
     monospace;
 }
 #main {
-  height : 100vh;
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
   align-items: center;
-  background-size: 100%;
+  justify-content: space-between;
 }
+
 #secondary {
   box-shadow: 0 0 1em lightgray;
   height : 12rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 20rem;
+  width: 25rem;
   align-items: center;
   border-radius: 2rem;
   margin-bottom: 4rem;
@@ -77,6 +76,13 @@ code {
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.mterial-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
   'wght' 400,
   'GRAD' 0,
   'opsz' 24

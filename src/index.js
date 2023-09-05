@@ -8,9 +8,10 @@ import { applyMiddleware, compose, legacy_createStore as createStore } from 'red
 import { rootReducer } from './components/reducers/rootReducer';
 import thunk from 'redux-thunk';
 import persistState from 'redux-localstorage'
+import "bootstrap/dist/css/bootstrap.min.css";
 // import { initialState } from './components/reducers/photoFormReducer';
 
-const composeEnhancers = compose(applyMiddleware(thunk),persistState(null,"data"));
+const composeEnhancers = compose(applyMiddleware(thunk),persistState(null,"data"),window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__());
 
 const store = createStore(rootReducer,composeEnhancers);
 
