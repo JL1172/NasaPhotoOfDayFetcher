@@ -3,10 +3,10 @@ import { API_KEY, InitialFetch, url } from "../API_KEY/api_key";
 import { CHANGE_VALUE, FETCH_WAS_A_FAILURE, FETCH_WAS_A_SUCCESS, IS_FETCHING } from "../actions/photoFormAction";
 import axios from "axios";
 
-const initialState = {
+export const initialState = {
     apiKey : API_KEY,
     defaultUrl : `https://apod.nasa.gov/apod/image/2309/CrescentBubble_AlHarbi_1080.jpg`,
-    url : "https://apod.nasa.gov/apod/image/2309/CrescentBubble_AlHarbi_1080.jpg",
+    url : "",
     newUrl : "",
     isFetching : false,
     errorMessage : "",

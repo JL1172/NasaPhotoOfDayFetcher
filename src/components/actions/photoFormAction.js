@@ -4,6 +4,7 @@ export const SUBMIT_DATE_QUERY = "SUBMIT_DATE_QUERY";
 export const IS_FETCHING = "IS_FETCHING";
 export const FETCH_WAS_A_SUCCESS = "FETCH_WAS_A_SUCCESS";
 export const FETCH_WAS_A_FAILURE = "FETCH_WAS_A_FAILURE";
+export const PERSIST_DATA = "PERSIST_DATA"
 
 const API_KEY = 'kDNGcwxyNNZQaaCcbUbdhGjP1jVB68YbmpkhjlS4';
 const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
@@ -33,4 +34,8 @@ const fetchWasASuccess = (photo) => { //THIS IS WHERE THE VALUE WILL BE PASSED I
 
 const fetchWasAFailure = (errorMessage) => {
     return { type: FETCH_WAS_A_FAILURE, payload: errorMessage }
+}
+
+const persist = (data) => {
+    return {type : PERSIST_DATA, payload : data}
 }
