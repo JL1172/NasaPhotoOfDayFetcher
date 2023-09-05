@@ -76,7 +76,7 @@ const PhotoForm = (props) => {
                         <StyledImg favorited = {props.favorited} onClick={() => favoriteHandler()} width={20}
                             src={props.favorited ? "https://www.svgrepo.com/show/361616/star-filled.svg" : "https://www.svgrepo.com/show/257711/favourite-star.svg"} />
                     </div>
-                    <button onClick={() => props.getPhotoOfTheDay(props.newUrl)} id="button" >Search Date</button>
+                    <button onClick={() => props.getPhotoOfTheDay(props.newUrl,"msg")} id="button" >Search Date</button>
                 </div>
             }
             {props.errorMessage && <h5 style={{ backgroundColor: "white" }}>{props.errorMessage}</h5>}

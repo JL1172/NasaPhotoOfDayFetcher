@@ -12,11 +12,11 @@ export const TOGGLE_FAVORITES = "TOGGLE_FAVORITES";
 const API_KEY = ''; //!make sure you delete this before pushing publicly
 const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 
-export const getPhotoOfTheDay = (newDate) => dispatch => {
+export const getPhotoOfTheDay = (newDate,msg) => dispatch => {
     dispatch(setIsFetching(true));
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=${newDate}`)
     .then(res=> {
-        dispatch(fetchInformation(res.data))
+        dispatch(fetchInformation(res.data));
         dispatch(fetchWasASuccess(res.data.url));
     },(err) => {
         const errorMessage = err.message;
