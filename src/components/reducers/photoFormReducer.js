@@ -28,15 +28,17 @@ export const photoReducer = (state = initialState, action) => {
             return({...state, isFetching : false, errorMessage : action.payload,
             url : state.defaultUrl});
         case(FETCH_INFORMATION) : 
-        console.log(action.payload)
+       
             return({...state, information : action.payload})
         case(GET_MORE_INFO) :
             return({...state, showInformation : !state.showInformation})
         case ADD_FAVORITE :
-        let found = state.favoritePictures.find(n => n === action.payload);
-            if (found && found.length > 0) {
-                return({...state, favoritePictures : state.favoritePictures.filter(n => n !== action.payload), favorited : !state.favorited})
+        let found = state.favoritePictures.find(n => n.url === action.payload.url);
+        console.log(found)
+            if (found && Object.keys(found).length > 0) {
+                return({...state, favoritePictures : state.favoritePictures.filter(n => n.url !== action.payload.url), favorited : !state.favorited})
             } else {
+                console.log(action.payload)
                 return({...state, favorited : !state.favorited, favoritePictures : [...state.favoritePictures, action.payload]})
             }
         default : 

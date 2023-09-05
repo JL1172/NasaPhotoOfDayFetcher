@@ -45,6 +45,6 @@ const fetchInformation = (data) => {
 export const getMoreInfo = () => {
     return{type : GET_MORE_INFO}
 }
-export const addFavorite = (date) => {
-    return{type : ADD_FAVORITE, payload : date}
+export const addFavorite = (data) => {
+    return{type : ADD_FAVORITE, payload : {...data}}
 }

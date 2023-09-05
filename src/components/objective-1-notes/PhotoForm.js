@@ -3,6 +3,14 @@ import { addFavorite, changeValue, getMoreInfo, getPhotoOfTheDay } from "../acti
 import reactstrap, { Spinner, Card, CardTitle, Popover, PopoverBody, PopoverHeader } from "reactstrap";
 
 const PhotoForm = (props) => {
+    const favoriteHandler = () => {
+        const obj = {
+            title : props.information.title,
+            date : props.information.date,
+            url : props.url,
+        }
+        props.addFavorite(obj)
+    }
     return (
         <div >
             {props.isFetching ? <Spinner id="spinner">
@@ -16,7 +24,7 @@ const PhotoForm = (props) => {
                         <span id="Popover1" onClick={() => props.getMoreInfo()} className="material-symbols-outlined">
                         more_horiz
                         </span>
-                        <img onClick={()=>props.addFavorite(props.url)} width={20} style = {{transition : '.2s ease-in-out'}}
+                        <img onClick={()=>favoriteHandler()} width={20} style = {{transition : '.2s ease-in-out'}}
                         src ={props.favorited ? "https://www.svgrepo.com/show/361616/star-filled.svg" : "https://www.svgrepo.com/show/257711/favourite-star.svg"}/>
                     </div>
                     <button onClick={() => props.getPhotoOfTheDay(props.newUrl)} id="button" >Search Date</button>
@@ -35,6 +43,7 @@ const mapStateToProps = state => {
         showInformation: state.photoReducer.showInformation,
         favorited : state.photoReducer.favorited,
         url : state.photoReducer.url,
+        information : state.photoReducer.information,
     }
 }
 
