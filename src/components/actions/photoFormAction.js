@@ -8,7 +8,7 @@ export const FETCH_INFORMATION = "FETCH_INFORMATION";
 export const GET_MORE_INFO = "GET_MORE_INFO";
 export const ADD_FAVORITE = "ADD_FAVORITE"; 
 
-const API_KEY = '//!!need to add api key here';
+const API_KEY = ''; //!make sure you delete this before pushing publicly
 const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 
 export const getPhotoOfTheDay = (newDate) => dispatch => {
