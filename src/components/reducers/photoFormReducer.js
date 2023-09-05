@@ -35,7 +35,7 @@ export const photoReducer = (state = initialState, action) => {
         case ADD_FAVORITE :
         let found = state.favoritePictures.find(n => n === action.payload);
             if (found && found.length > 0) {
-                return({...state, favoritePictures : state.favoritePictures.filter(n => n !== action.payload)})
+                return({...state, favoritePictures : state.favoritePictures.filter(n => n !== action.payload), favorited : !state.favorited})
             } else {
                 return({...state, favorited : !state.favorited, favoritePictures : [...state.favoritePictures, action.payload]})
             }

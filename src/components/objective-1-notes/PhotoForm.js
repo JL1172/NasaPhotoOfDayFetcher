@@ -16,7 +16,7 @@ const PhotoForm = (props) => {
                         <span id="Popover1" onClick={() => props.getMoreInfo()} className="material-symbols-outlined">
                         more_horiz
                         </span>
-                        <img onClick={()=>props.addFavorite(props.url)} width={16} style = {{transition : '1s ease-in-out'}}
+                        <img onClick={()=>props.addFavorite(props.url)} width={20} style = {{transition : '.2s ease-in-out'}}
                         src ={props.favorited ? "https://www.svgrepo.com/show/361616/star-filled.svg" : "https://www.svgrepo.com/show/257711/favourite-star.svg"}/>
                     </div>
                     <button onClick={() => props.getPhotoOfTheDay(props.newUrl)} id="button" >Search Date</button>
