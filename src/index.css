@@ -11,3 +11,60 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#main {
+  height : 100vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  background-size: 100%;
+}
+#secondary {
+  box-shadow: 0 0 1em lightgray;
+  height : 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 20rem;
+  align-items: center;
+  border-radius: 2rem;
+  margin-bottom: 4rem;
+}
+#newUrl {
+  border : none;
+  height : 3rem;
+  width : 10rem;
+  border-radius: 4rem;
+  padding : .5rem 1rem .5rem 1rem;
+  transition: .2s ease-in-out;
+}
+#newUrl:focus {
+  border : none;
+  outline : none;
+  box-shadow: 0 0 1.5rem lightblue;
+  border-radius: 4rem;
+  transition: .2s ease-in-out;
+}
+#button {
+  border: none;
+  background-color: royalblue;
+  width : 8rem;
+  height : 3rem;
+  color : white;
+  border-radius: 5rem;
+  box-shadow: 0 0 1em gray;
+  transition: .3s ease-in-out;
+}
+#button:active {
+  background-color: white;
+  color : royalblue;
+  outline: 2px solid royalblue;
+  box-shadow: none;
+  transition: .3s ease-in-out;
+}
+#spinner {
+  display: flex;
+  margin-bottom: 30rem;
+  width: 10rem;
+  height:10rem;
+}

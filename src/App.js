@@ -1,25 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import PhotoForm from './components/objective-1-notes/PhotoForm';
+import { connect } from 'react-redux';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id = "main" style = {{backgroundImage : `url(${props.url})`}} >
+        <PhotoForm />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+
+  return {
+    isFetching : state.photoReducer.isFetching,
+    url : state.photoReducer.url,
+  }
+}
+
+export default connect(mapStateToProps,{})(App);
