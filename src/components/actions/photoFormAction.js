@@ -7,6 +7,7 @@ export const FETCH_WAS_A_FAILURE = "FETCH_WAS_A_FAILURE";
 export const FETCH_INFORMATION = "FETCH_INFORMATION";
 export const GET_MORE_INFO = "GET_MORE_INFO";
 export const ADD_FAVORITE = "ADD_FAVORITE"; 
+export const TOGGLE_FAVORITES = "TOGGLE_FAVORITES"; 
 
 const API_KEY = ''; //!make sure you delete this before pushing publicly
 const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
@@ -47,4 +48,7 @@ export const getMoreInfo = () => {
 }
 export const addFavorite = (data) => {
     return{type : ADD_FAVORITE, payload : {...data}}
+}
+export const toggleFavorites = () => {
+    return{type : TOGGLE_FAVORITES}
 }

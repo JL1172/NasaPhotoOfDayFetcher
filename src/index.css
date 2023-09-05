@@ -13,9 +13,14 @@ code {
 }
 #main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+}
+#section {
+  z-index: 1;
+  border-radius : 10px;
+  background-color: lightgray;
 }
 
 #secondary {
@@ -83,6 +88,32 @@ code {
 .mterial-symbols-outlined {
   font-variation-settings:
   'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+#menuOpen:active {
+  transform: rotate(360deg);
+  transition: .2s ease-in-out;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
   'wght' 400,
   'GRAD' 0,
   'opsz' 24

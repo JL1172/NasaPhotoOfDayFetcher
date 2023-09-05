@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
-import { addFavorite, changeValue, getMoreInfo, getPhotoOfTheDay } from "../actions/photoFormAction";
+import { addFavorite, changeValue, getMoreInfo, getPhotoOfTheDay, toggleFavorites } from "../actions/photoFormAction";
 import reactstrap, { Spinner, Card, CardTitle, Popover, PopoverBody, PopoverHeader } from "reactstrap";
 
 const PhotoForm = (props) => {
     const favoriteHandler = () => {
         const obj = {
-            title : props.information.title,
-            date : props.information.date,
-            url : props.url,
+            title: props.information.title,
+            date: props.information.date,
+            url: props.url,
         }
         props.addFavorite(obj)
     }
@@ -17,15 +17,18 @@ const PhotoForm = (props) => {
                 Loading...
             </Spinner> :
                 <div id="secondary">
-                    <div style={{ width : "20rem", display: "flex", justifyContent : "space-evenly", alignItems : "baseline" }}>
+                    <div style={{ width: "20rem", display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+                        <span id = "menuOpen" onClick = {()=> props.toggleFavorites()} class="material-symbols-outlined">
+                            menu_open
+                        </span>
                         <input type="date" value={props.newUrl}
                             onChange={(e) => props.changeValue(e.target.value)} name="newUrl"
                             id="newUrl" />
                         <span id="Popover1" onClick={() => props.getMoreInfo()} className="material-symbols-outlined">
-                        more_horiz
+                            more_horiz
                         </span>
-                        <img onClick={()=>favoriteHandler()} width={20} style = {{transition : '.2s ease-in-out'}}
-                        src ={props.favorited ? "https://www.svgrepo.com/show/361616/star-filled.svg" : "https://www.svgrepo.com/show/257711/favourite-star.svg"}/>
+                        <img onClick={() => favoriteHandler()} width={20} style={{ transition: '.2s ease-in-out' }}
+                            src={props.favorited ? "https://www.svgrepo.com/show/361616/star-filled.svg" : "https://www.svgrepo.com/show/257711/favourite-star.svg"} />
                     </div>
                     <button onClick={() => props.getPhotoOfTheDay(props.newUrl)} id="button" >Search Date</button>
                 </div>
@@ -41,10 +44,10 @@ const mapStateToProps = state => {
         errorMessage: state.photoReducer.errorMessage,
         isFetching: state.photoReducer.isFetching,
         showInformation: state.photoReducer.showInformation,
-        favorited : state.photoReducer.favorited,
-        url : state.photoReducer.url,
-        information : state.photoReducer.information,
+        favorited: state.photoReducer.favorited,
+        url: state.photoReducer.url,
+        information: state.photoReducer.information,
     }
 }
 
-export default connect(mapStateToProps, { changeValue, getPhotoOfTheDay, getMoreInfo, addFavorite })(PhotoForm);
+export default connect(mapStateToProps, { changeValue, getPhotoOfTheDay, getMoreInfo, addFavorite, toggleFavorites })(PhotoForm);

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { API_KEY, InitialFetch, url } from "../API_KEY/api_key";
-import { ADD_FAVORITE, CHANGE_VALUE, FETCH_INFORMATION, FETCH_WAS_A_FAILURE, FETCH_WAS_A_SUCCESS, GET_MORE_INFO, IS_FETCHING } from "../actions/photoFormAction";
+import { ADD_FAVORITE, CHANGE_VALUE, FETCH_INFORMATION, FETCH_WAS_A_FAILURE, FETCH_WAS_A_SUCCESS, GET_MORE_INFO, IS_FETCHING, TOGGLE_FAVORITES } from "../actions/photoFormAction";
 import axios from "axios";
 
 export const initialState = {
@@ -14,6 +14,7 @@ export const initialState = {
     showInformation : true,
     favorited : false,
     favoritePictures : [],
+    showFavorites : false,
 }
 
 export const photoReducer = (state = initialState, action) => {
@@ -34,13 +35,14 @@ export const photoReducer = (state = initialState, action) => {
             return({...state, showInformation : !state.showInformation})
         case ADD_FAVORITE :
         let found = state.favoritePictures.find(n => n.url === action.payload.url);
-        console.log(found)
             if (found && Object.keys(found).length > 0) {
                 return({...state, favoritePictures : state.favoritePictures.filter(n => n.url !== action.payload.url), favorited : !state.favorited})
             } else {
                 console.log(action.payload)
                 return({...state, favorited : !state.favorited, favoritePictures : [...state.favoritePictures, action.payload]})
             }
+        case(TOGGLE_FAVORITES) :
+            return({...state, showFavorites : !state.showFavorites})
         default : 
             return(state); 
     }

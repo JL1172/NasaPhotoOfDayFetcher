@@ -1,14 +1,70 @@
 import { connect } from "react-redux"
-import { ADD_FAVORITE, addFavorite } from "../actions/photoFormAction"
+import { ADD_FAVORITE, addFavorite, changeValue, toggleFavorites } from "../actions/photoFormAction"
+import styled from "styled-components";
+import { keyframes } from "styled-components";
 
+const kf2 = keyframes`
+0% {
+    transform : translateX(-10rem);
+    width  : 0rem;
+    opacity : .3;
+}
+50% {
+    opacity : .5;
+}
+100% {
+    transform : translateX(0);
+    width : 18rem;
+    opacity : 1;
+}
+`
+
+const StyledFavorite = styled.div`
+color : black;
+display : ${props => props.showFavorites ? "flex" : "none"};
+animation : ${kf2} .6s ease-in-out forwards; 
+flex-direction : column;
+align-items : baseline;
+background-color : lightgray;
+width : 0;
+height :59.5rem;
+z-index : 3;
+opacity : 1;
+border-right: 2px solid lightgrey;
+h4 {
+    margin-bottom : 1rem;
+    margin-top : 1rem;
+    display : flex;
+    justify-content  : center;
+    width : 16rem;
+}
+section {
+    background-color : white;
+    margin : 0 .5rem 0 .5rem;
+    padding : 0 .4rem 0 .4rem;
+    border-radius : 5px;
+    display : flex;
+    align-items : center;
+}
+
+`
 
 const FavoritedList = (props) => {
+    const { showFavorites } = props;
     return (
-        <div>
-            {props.favoritePictures.map((n,i)=> {
-                return <div key = {i}>{n}</div>
-            })}
-        </div>
+        <StyledFavorite showFavorites={showFavorites}>
+            <div id="first">
+                <span onClick={()=> props.toggleFavorites()} class="material-symbols-outlined">
+                    close
+                </span>
+                <h4>Favorite List</h4>
+                {props.favoritePictures && props.favoritePictures.map((n, i) => {
+                    return <section  key={i}>{n.title}--{n.date}<span onClick={()=> props.addFavorite(n)} class="material-symbols-outlined">
+                    delete
+                    </span></section>
+                })}
+            </div>
+        </StyledFavorite>
     )
 }
 
@@ -16,9 +72,8 @@ const mapStateToProps = state => {
     return {
         favorited: state.photoReducer.favorited,
         favoritePictures: state.photoReducer.favoritePictures,
-        date : state.photoReducer.information.date,
-        title : state.photoReducer.information.title,
+        showFavorites: state.photoReducer.showFavorites,
     }
 }
 
-export default connect(mapStateToProps, { addFavorite })(FavoritedList);
+export default connect(mapStateToProps, { addFavorite, toggleFavorites, changeValue })(FavoritedList);
