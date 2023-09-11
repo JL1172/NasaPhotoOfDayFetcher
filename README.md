@@ -45,7 +45,7 @@ To run this application locally, follow these steps:
    ```
 ## Usage 
 > [!IMPORTANT]
-> * When you launch the application, you will have to navigate to the photoFormReducer.js file in the reducers folder in the components folder
+> * When you launch the application, you will have to navigate to the photoFormAction.js file in the reducers folder in the components folder
 > * There, you will see a variable named `const API_KEY = ""`
 > * You will have to generate your own from this [website](https://api.nasa.gov/) and insert it in that variable. 
 > * It is very important you do not push your fork if it is both public and has your API_KEY visible. 
