@@ -10,7 +10,7 @@ export const ADD_FAVORITE = "ADD_FAVORITE";
 export const TOGGLE_FAVORITES = "TOGGLE_FAVORITES"; 
 export const IS_STAR_FALSE = "IS_STAR_FALSE";
 
-const API_KEY = ''; //!make sure you delete this before pushing publicly
+const API_KEY = ''; //!make sure you delete this before pushing publicly or go to api_key and add file to git ignore and verify before pushing that it has been ignored
 const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 
 export const getPhotoOfTheDay = (newDate) => dispatch => {
